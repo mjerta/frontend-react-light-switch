@@ -1,15 +1,23 @@
-import React from 'react';
+import {useState} from 'react';
 import './App.css';
 
 function App() {
-    return (
-        <main className="off">
-            <section>
-                <div className="dot"></div>
-                <button type="button">Turn on/off</button>
-            </section>
-        </main>
-    );
+  const [state, setState] = useState(false)
+  return (
+    <>
+      {console.log(state)}
+      <main className={state ? "on" : "off"}>
+        <section>
+          <div className="dot"></div>
+          <button
+            onClick={() => setState((prevState) => !prevState)}
+            type="button">{state ? "turn off" : "turn on"}
+          </button>
+        </section>
+      </main>
+      );
+    </>
+  )
 }
 
 export default App;
